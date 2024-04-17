@@ -56,6 +56,7 @@ class SwordBehavior implements WeaponBehavior {
   }
 }
 
+export const name = "Strategy2"
 export function main() {
   const king = new King(),
     queen = new Queen(),

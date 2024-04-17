@@ -35,6 +35,7 @@ class Cat extends Animal {
   flyBehavior: FlyBehavior;
 }
 
+export const name = "Strategy"
 export function main() {
   const animals = [new Cat(), new Duck()];
   animals.forEach((animal) => {

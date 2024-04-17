@@ -42,6 +42,7 @@ class TurkeyAdapter implements Duck{
   }
 }
 
+export const name = "Adapter"
 export function main(){
   const mallarDuck = new MallardDuck()
   const wildTurkey = new WildTurkey()

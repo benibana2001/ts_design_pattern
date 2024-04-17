@@ -92,6 +92,7 @@ class ForecastDisplay implements Observer, DisplayElement {
   }
 }
 
+export const name = 'Observer' 
 export function main() {
   const w = new WeatherData();
   const display1 = new CurrentConditionsDisplay(w);

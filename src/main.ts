@@ -1,9 +1,9 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import "./style.css";
+import typescriptLogo from "./typescript.svg";
+import viteLogo from "/vite.svg";
+import { setupCounter } from "./counter.ts";
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   <div>
     <a href="https://vitejs.dev" target="_blank">
       <img src="${viteLogo}" class="logo" alt="Vite logo" />
@@ -19,32 +19,20 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       Click on the Vite and TypeScript logos to learn more
     </p>
   </div>
-`
+`;
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+setupCounter(document.querySelector<HTMLButtonElement>("#counter")!);
 
-// Strategy Pattern
-import("./strategy.ts").then((module) => {
-  console.groupCollapsed('Strategy')
-  module.main();
-  console.groupEnd()
-})
-import("./strategy2.ts").then((module) => {
-  console.groupCollapsed('Strategy 2')
-  module.main();
-  console.groupEnd()
-})
-
-/** Observer Pattern */
-import('./observer.ts').then((module)=>{
-  console.groupCollapsed('Observer')
-  module.main()
-  console.groupEnd()
-})
-
-/** Adapter Pattern */
-import ('./adapter.ts').then((module) => {
-  console.groupCollapsed('Adapter')
-  module.main()
-  console.groupEnd()
-})
+Promise.all([
+  import("./strategy.ts"),
+  import("./strategy2.ts"),
+  import("./observer.ts"),
+  import("./adapter.ts"),
+  import("./factoryMethod.ts"),
+]).then((all) => {
+  all.forEach((mod) => {
+    console.groupCollapsed(`${mod.name}`);
+    mod.main();
+    console.groupEnd();
+  });
+});
